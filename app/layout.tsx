@@ -35,6 +35,10 @@ export async function generateMetadata(): Promise<Metadata> {
         "Infraestrutura digital para negócios locais venderem com mais clareza e ganharem tempo.",
       images: [imageUrl],
     },
+    icons: {
+      icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+      shortcut: "/favicon.svg",
+    },
   };
 }
 
