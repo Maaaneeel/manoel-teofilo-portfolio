@@ -85,13 +85,12 @@ const portfolioVisuals: PortfolioVisual[] = [
   {
     number: "03",
     group: "Site · Responsividade",
-    title: "Uma experiência pensada para o celular",
+    title: "Yes Play — experiência feita para celular",
     ratio: "16:9",
     shape: "wide",
-    placeholder: "Adicionar print mobile",
     phoneDemo: true,
     description:
-      "O quadro é 16:9 e o celular recebe um print vertical 9:16. Um modelo GLB otimizado mantém a apresentação estável e leve.",
+      "A versão mobile preserva a identidade visual, organiza a leitura e mantém as ações principais sempre ao alcance do cliente.",
   },
   {
     number: "05",
