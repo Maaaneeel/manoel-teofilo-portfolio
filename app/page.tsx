@@ -1,5 +1,19 @@
+import Image from "next/image";
 import PhoneModelViewer from "./components/PhoneModelViewer";
 import ScrollReveal from "./components/ScrollReveal";
+
+type PortfolioVisual = {
+  number: string;
+  group: string;
+  title: string;
+  ratio: string;
+  shape: "wide" | "standard" | "square";
+  description: string;
+  placeholder?: string;
+  phoneDemo?: boolean;
+  image?: string;
+  imageAlt?: string;
+};
 
 const services = [
   {
@@ -34,36 +48,39 @@ const services = [
   },
 ];
 
-const portfolioVisuals = [
+const portfolioVisuals: PortfolioVisual[] = [
   {
     number: "01",
     group: "Site · Página inicial",
-    title: "A primeira impressão do negócio",
+    title: "Yes Play — excelência para o reino",
     ratio: "16:9",
     shape: "wide",
-    placeholder: "Adicionar print do site",
+    image: "/showcase/01.png",
+    imageAlt: "Página inicial do site Yes Play",
     description:
-      "Use uma captura horizontal da primeira tela do site, mostrando identidade visual, título principal e o botão que conduz o visitante à ação.",
+      "Uma presença digital para produtora musical, gravadora e editora, com caminhos diretos para contratar um show ou conhecer o elenco.",
   },
   {
     number: "02",
-    group: "Site · Conteúdo",
-    title: "Serviços apresentados com clareza",
+    group: "Site · Serviços",
+    title: "Celeiro Pet Village — escolha sem dúvida",
     ratio: "4:3",
     shape: "standard",
-    placeholder: "Adicionar print do site",
+    image: "/showcase/02.png",
+    imageAlt: "Seção de serviços do site Celeiro Pet Village",
     description:
-      "Mostre uma seção que organize serviços, produtos, diferenciais ou informações importantes sem deixar o cliente perdido.",
+      "Serviços, explicações e ações organizadas para que tutores entendam o atendimento e entrem em contato com facilidade.",
   },
   {
     number: "04",
     group: "Site · Conversão",
-    title: "Do interesse ao contato",
+    title: "Cabana — cardápio direto ao pedido",
     ratio: "4:3",
     shape: "standard",
-    placeholder: "Adicionar print do site",
+    image: "/showcase/04.png",
+    imageAlt: "Cardápio digital do site Cabana Carnes e Pizzas",
     description:
-      "Mostre uma tela com chamada para orçamento, agendamento, cardápio ou WhatsApp — o momento em que o site transforma atenção em oportunidade.",
+      "Um cardápio digital que apresenta os itens com clareza e direciona o cliente para fazer o pedido pelo WhatsApp.",
   },
   {
     number: "03",
@@ -82,9 +99,10 @@ const portfolioVisuals = [
     title: "O fluxo completo no n8n",
     ratio: "4:3",
     shape: "standard",
-    placeholder: "Adicionar imagem do n8n",
+    image: "/showcase/05.png",
+    imageAlt: "Fluxo de automação no n8n",
     description:
-      "Use uma captura do fluxo, do gatilho inicial até a resposta. O objetivo é transmitir organização sem expor informações dos clientes.",
+      "Uma automação que recebe mensagens, consulta informações, organiza decisões e devolve respostas pelo WhatsApp.",
   },
   {
     number: "06",
@@ -92,9 +110,10 @@ const portfolioVisuals = [
     title: "Atendimento rápido e organizado",
     ratio: "4:3",
     shape: "standard",
-    placeholder: "Adicionar resultado da automação",
+    image: "/showcase/06.png",
+    imageAlt: "Conversa de WhatsApp com resultado de automação",
     description:
-      "Mostre a conversa, o pedido estruturado, um lembrete ou outro resultado visível que ajude o cliente a entender o benefício da automação.",
+      "A conversa recebe a intenção do cliente e apresenta opções úteis imediatamente, sem deixar o atendimento parado.",
   },
 ];
 
@@ -211,17 +230,30 @@ export default function Home() {
               data-reveal="scale"
               data-reveal-delay={(Number(visual.number) % 2) * 80}
             >
-              <div className="automation-placeholder" aria-label={`Espaço para imagem: ${visual.title}`}>
-                <div className="placeholder-grid" aria-hidden="true" />
+              <div
+                className={`automation-placeholder${visual.image ? " automation-preview" : ""}`}
+                aria-label={visual.image ? undefined : `Espaço para imagem: ${visual.title}`}
+              >
                 <span className="placeholder-number">{visual.number}</span>
-                {visual.phoneDemo ? (
+                {visual.image ? (
+                  <Image
+                    src={visual.image}
+                    alt={visual.imageAlt}
+                    fill
+                    sizes={visual.shape === "wide" ? "88vw" : "(max-width: 760px) 100vw, 44vw"}
+                    unoptimized
+                  />
+                ) : visual.phoneDemo ? (
                   <PhoneModelViewer />
                 ) : (
-                  <div className="placeholder-center">
-                    <span className="placeholder-icon" aria-hidden="true">＋</span>
-                    <strong>{visual.placeholder}</strong>
-                    <small>Proporção {visual.ratio}</small>
-                  </div>
+                  <>
+                    <div className="placeholder-grid" aria-hidden="true" />
+                    <div className="placeholder-center">
+                      <span className="placeholder-icon" aria-hidden="true">＋</span>
+                      <strong>{visual.placeholder}</strong>
+                      <small>Proporção {visual.ratio}</small>
+                    </div>
+                  </>
                 )}
               </div>
               <div className="automation-visual-copy">
