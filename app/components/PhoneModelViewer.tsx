@@ -144,7 +144,7 @@ export default function PhoneModelViewer() {
       if (!width || !height) return;
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      renderer.setSize(width, height, false);
+      renderer.setSize(width, height);
     };
 
     const observer = new ResizeObserver(resize);
