@@ -512,10 +512,7 @@ img {
 .phone-viewer-stage {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
   overflow: hidden;
-  perspective: 1100px;
   background:
     radial-gradient(circle at 25% 18%, rgba(108, 195, 255, 0.3), transparent 34%),
     radial-gradient(circle at 78% 80%, rgba(220, 71, 112, 0.26), transparent 38%),
@@ -533,139 +530,10 @@ img {
   filter: blur(30px);
 }
 
-.phone-spin {
-  --phone-depth: 18px;
+.phone-three-canvas {
   position: absolute;
+  inset: 0;
   z-index: 1;
-  height: 86%;
-  aspect-ratio: 9 / 19.5;
-  transform-style: preserve-3d;
-  animation: phone-spin 10s linear infinite;
-}
-
-.phone-device {
-  position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
-}
-
-.phone-face {
-  position: absolute;
-  inset: 0;
-  border-radius: 32px;
-  backface-visibility: hidden;
-}
-
-.phone-front {
-  padding: 7px;
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.78);
-  background: #12141d;
-  box-shadow: 18px 28px 30px rgba(0, 0, 0, 0.4);
-  transform: translateZ(calc(var(--phone-depth) / 2));
-}
-
-.phone-front::after {
-  position: absolute;
-  z-index: 3;
-  inset: 7px;
-  pointer-events: none;
-  content: "";
-  border-radius: 25px;
-  background: linear-gradient(126deg, rgba(255, 255, 255, 0.25), transparent 25%, transparent 74%, rgba(89, 192, 255, 0.15));
-}
-
-.phone-back {
-  overflow: hidden;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  background:
-    radial-gradient(circle at 67% 17%, rgba(88, 192, 255, 0.22), transparent 17%),
-    linear-gradient(145deg, #10141e, #333a4a 48%, #10131d);
-  box-shadow: 18px 28px 30px rgba(0, 0, 0, 0.4);
-  transform: rotateY(180deg) translateZ(calc(var(--phone-depth) / 2));
-}
-
-.phone-camera {
-  position: absolute;
-  width: 18%;
-  aspect-ratio: 1;
-  border: 2px solid rgba(255, 255, 255, 0.36);
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #8ed9ff 0 8%, #14223b 11% 42%, #05070d 45% 100%);
-  box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.3);
-}
-
-.phone-camera-one {
-  top: 10%;
-  left: 11%;
-}
-
-.phone-camera-two {
-  top: 30%;
-  left: 11%;
-}
-
-.phone-camera-three {
-  top: 20%;
-  left: 34%;
-}
-
-.phone-side {
-  box-sizing: border-box;
-  border-radius: 0;
-  backface-visibility: visible;
-}
-
-.phone-side-left,
-.phone-side-right {
-  top: 0;
-  width: var(--phone-depth);
-  height: 100%;
-}
-
-.phone-side-left {
-  left: calc(var(--phone-depth) / -2);
-  background: linear-gradient(90deg, #080a10, #5b6780 52%, #11151e);
-  transform: rotateY(-90deg);
-}
-
-.phone-side-right {
-  right: calc(var(--phone-depth) / -2);
-  background: linear-gradient(270deg, #080a10, #5b6780 52%, #11151e);
-  transform: rotateY(90deg);
-}
-
-.phone-side-top,
-.phone-side-bottom {
-  left: 0;
-  width: 100%;
-  height: var(--phone-depth);
-}
-
-.phone-side-top {
-  top: calc(var(--phone-depth) / -2);
-  background: linear-gradient(#65728a, #121722 72%);
-  transform: rotateX(90deg);
-}
-
-.phone-side-bottom {
-  bottom: calc(var(--phone-depth) / -2);
-  background: linear-gradient(#10141e, #566176);
-  transform: rotateX(-90deg);
-}
-
-.phone-screen {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  border-radius: 24px;
-  background: #070d20;
-  transform: translateZ(6px);
-}
-
-.phone-screen img {
-  object-fit: cover;
 }
 
 .phone-viewer-stage > p {
@@ -679,23 +547,6 @@ img {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-@keyframes phone-spin {
-  from {
-    transform: rotateX(6deg) rotateY(-18deg) rotateZ(5deg);
-  }
-
-  to {
-    transform: rotateX(6deg) rotateY(342deg) rotateZ(5deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .phone-spin {
-    animation: none;
-    transform: rotateX(6deg) rotateY(-18deg) rotateZ(5deg);
-  }
 }
 
 .automation-visual-copy {
