@@ -334,6 +334,15 @@ export default function Home() {
         <div className="about-intro" data-reveal="left">
           <p className="eyebrow">Sobre mim</p>
           <h2>Trabalho bem feito também é uma forma de servir pessoas.</h2>
+          <figure className="about-portrait">
+            <Image
+              src="/about/manoel-teofilo.png"
+              alt="Manoel Teófilo sorrindo, vestindo blazer azul"
+              fill
+              sizes="(max-width: 1050px) 100vw, 36vw"
+              unoptimized
+            />
+          </figure>
         </div>
         <div className="about-body" data-reveal="right" data-reveal-delay="100">
           <p className="about-lead">
