@@ -523,6 +523,7 @@ img {
   display: grid;
   place-items: center;
   overflow: hidden;
+  perspective: 1100px;
   background:
     radial-gradient(circle at 25% 18%, rgba(108, 195, 255, 0.3), transparent 34%),
     radial-gradient(circle at 78% 80%, rgba(220, 71, 112, 0.26), transparent 38%),
@@ -546,19 +547,44 @@ img {
   height: 86%;
   aspect-ratio: 9 / 19.5;
   padding: 7px;
-  overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.78);
   border-radius: 32px;
   background: #12141d;
   box-shadow:
-    0 28px 50px rgba(0, 0, 0, 0.42),
-    0 0 0 5px rgba(10, 15, 30, 0.6);
-  transform: rotate(7deg);
-  transition: transform 400ms ease;
+    24px 34px 48px rgba(0, 0, 0, 0.48),
+    0 0 0 5px rgba(10, 15, 30, 0.62);
+  transform: rotateX(6deg) rotateY(-18deg) rotateZ(5deg);
+  transform-style: preserve-3d;
+  transition: transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  animation: phone-float 6s ease-in-out infinite;
+}
+
+.phone-device::before {
+  position: absolute;
+  z-index: -1;
+  inset: 8px -11px -11px 10px;
+  content: "";
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 32px;
+  background: linear-gradient(145deg, #080a11, #2c3140 42%, #08090e 72%);
+  box-shadow: 14px 15px 24px rgba(0, 0, 0, 0.34);
+  transform: translateZ(-14px);
+}
+
+.phone-device::after {
+  position: absolute;
+  z-index: 3;
+  inset: 7px;
+  pointer-events: none;
+  content: "";
+  border-radius: 25px;
+  background: linear-gradient(126deg, rgba(255, 255, 255, 0.25), transparent 25%, transparent 74%, rgba(89, 192, 255, 0.15));
+  transform: translateZ(8px);
 }
 
 .automation-visual-card:hover .phone-device {
-  transform: rotate(3deg) translateY(-4px);
+  transform: translateY(-8px) rotateX(3deg) rotateY(-12deg) rotateZ(2deg);
+  animation: none;
 }
 
 .phone-screen {
@@ -568,6 +594,7 @@ img {
   overflow: hidden;
   border-radius: 24px;
   background: #070d20;
+  transform: translateZ(6px);
 }
 
 .phone-screen img {
@@ -585,6 +612,23 @@ img {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+@keyframes phone-float {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(6deg) rotateY(-18deg) rotateZ(5deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotateX(3deg) rotateY(-14deg) rotateZ(3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-device {
+    animation: none;
+  }
 }
 
 .automation-visual-copy {
@@ -1032,7 +1076,7 @@ img {
 
   .phone-device {
     height: 90%;
-    transform: rotate(9deg);
+    transform: rotateX(4deg) rotateY(-14deg) rotateZ(6deg);
   }
 
   .automation-section {
