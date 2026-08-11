@@ -612,7 +612,8 @@ img {
 
 .phone-side {
   box-sizing: border-box;
-  background: linear-gradient(145deg, #07090e, #505b71 48%, #0a0c12);
+  border-radius: 0;
+  backface-visibility: visible;
 }
 
 .phone-side-left,
@@ -624,11 +625,13 @@ img {
 
 .phone-side-left {
   left: calc(var(--phone-depth) / -2);
+  background: linear-gradient(90deg, #080a10, #5b6780 52%, #11151e);
   transform: rotateY(-90deg);
 }
 
 .phone-side-right {
   right: calc(var(--phone-depth) / -2);
+  background: linear-gradient(270deg, #080a10, #5b6780 52%, #11151e);
   transform: rotateY(90deg);
 }
 
@@ -641,11 +644,13 @@ img {
 
 .phone-side-top {
   top: calc(var(--phone-depth) / -2);
+  background: linear-gradient(#65728a, #121722 72%);
   transform: rotateX(90deg);
 }
 
 .phone-side-bottom {
   bottom: calc(var(--phone-depth) / -2);
+  background: linear-gradient(#10141e, #566176);
   transform: rotateX(-90deg);
 }
 
