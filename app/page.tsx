@@ -6,7 +6,6 @@ type PortfolioVisual = {
   number: string;
   group: string;
   title: string;
-  ratio: string;
   shape: "wide" | "standard" | "square";
   description: string;
   placeholder?: string;
@@ -53,7 +52,6 @@ const portfolioVisuals: PortfolioVisual[] = [
     number: "01",
     group: "Site · Página inicial",
     title: "Yes Play — excelência para o reino",
-    ratio: "16:9",
     shape: "wide",
     image: "/showcase/01.png",
     imageAlt: "Página inicial do site Yes Play",
@@ -64,7 +62,6 @@ const portfolioVisuals: PortfolioVisual[] = [
     number: "02",
     group: "Site · Serviços",
     title: "Celeiro Pet Village — escolha sem dúvida",
-    ratio: "4:3",
     shape: "standard",
     image: "/showcase/02.png",
     imageAlt: "Seção de serviços do site Celeiro Pet Village",
@@ -75,7 +72,6 @@ const portfolioVisuals: PortfolioVisual[] = [
     number: "04",
     group: "Site · Conversão",
     title: "Cabana — cardápio direto ao pedido",
-    ratio: "4:3",
     shape: "standard",
     image: "/showcase/04.png",
     imageAlt: "Cardápio digital do site Cabana Carnes e Pizzas",
@@ -86,7 +82,6 @@ const portfolioVisuals: PortfolioVisual[] = [
     number: "03",
     group: "Site · Responsividade",
     title: "Yes Play — experiência feita para celular",
-    ratio: "16:9",
     shape: "wide",
     phoneDemo: true,
     description:
@@ -96,7 +91,6 @@ const portfolioVisuals: PortfolioVisual[] = [
     number: "05",
     group: "Automação · Estrutura",
     title: "O fluxo completo no n8n",
-    ratio: "4:3",
     shape: "standard",
     image: "/showcase/05.png",
     imageAlt: "Fluxo de automação no n8n",
@@ -107,7 +101,6 @@ const portfolioVisuals: PortfolioVisual[] = [
     number: "06",
     group: "Automação · Resultado",
     title: "Atendimento rápido e organizado",
-    ratio: "4:3",
     shape: "standard",
     image: "/showcase/06.png",
     imageAlt: "Conversa de WhatsApp com resultado de automação",
@@ -250,7 +243,6 @@ export default function Home() {
                     <div className="placeholder-center">
                       <span className="placeholder-icon" aria-hidden="true">＋</span>
                       <strong>{visual.placeholder}</strong>
-                      <small>Proporção {visual.ratio}</small>
                     </div>
                   </>
                 )}
@@ -258,7 +250,6 @@ export default function Home() {
               <div className="automation-visual-copy">
                 <div>
                   <span>{visual.group}</span>
-                  <b>{visual.ratio}</b>
                 </div>
                 <h3>{visual.title}</h3>
                 <p>{visual.description}</p>

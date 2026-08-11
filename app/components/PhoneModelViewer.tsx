@@ -21,10 +21,10 @@ export default function PhoneModelViewer() {
             <span className="phone-camera phone-camera-two" />
             <span className="phone-camera phone-camera-three" />
           </div>
-          <span className="phone-edge phone-edge-left" aria-hidden="true" />
-          <span className="phone-edge phone-edge-right" aria-hidden="true" />
-          <span className="phone-edge phone-edge-top" aria-hidden="true" />
-          <span className="phone-edge phone-edge-bottom" aria-hidden="true" />
+          <span className="phone-face phone-side phone-side-left" aria-hidden="true" />
+          <span className="phone-face phone-side phone-side-right" aria-hidden="true" />
+          <span className="phone-face phone-side phone-side-top" aria-hidden="true" />
+          <span className="phone-face phone-side phone-side-bottom" aria-hidden="true" />
         </div>
       </div>
       <p>Experiência mobile · Yes Play</p>
