@@ -24,7 +24,7 @@ export default function PhoneModelViewer() {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
-    camera.position.set(0, 0.05, 7.45);
+    camera.position.set(0, 0, 7.45);
 
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
@@ -36,6 +36,7 @@ export default function PhoneModelViewer() {
     host.appendChild(renderer.domElement);
 
     const phone = new THREE.Group();
+    phone.scale.setScalar(0.72);
     phone.rotation.set(0.12, -0.3, -0.08);
     scene.add(phone);
 
