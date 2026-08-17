@@ -71,7 +71,7 @@ const portfolioVisuals: PortfolioVisual[] = [
   {
     number: "04",
     group: "Site · Conversão",
-    title: "Cabana — cardápio direto ao pedido",
+    title: "Restaurante — cardápio direto ao pedido",
     shape: "standard",
     image: "/showcase/04.png",
     imageAlt: "Cardápio digital do site Cabana Carnes e Pizzas",
